@@ -9,8 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7fc5b9d5b7474ea1bbf23c465888a0c7, type: 3}
-  m_Name: Animal
+  m_Script: {fileID: 11500000, guid: 5b59982b6d9345dba508bae6931f5e45, type: 3}
+  m_Name: Goblin
   m_EditorClassIdentifier: 
   Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   Charm: 10
+  Type: 1

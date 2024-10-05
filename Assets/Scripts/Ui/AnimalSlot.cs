@@ -8,7 +8,7 @@ public class AnimalSlot : MonoBehaviour
     {
         InitRect();
         rect.SetParent(Rect, false);
-        rect.anchoredPosition = Vector2.zero;
+        rect.anchoredPosition = Vector2.zero;   
     }
 
     private void InitRect()

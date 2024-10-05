@@ -4,14 +4,16 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class AnimalDrag : MonoBehaviour, IBeginDragHandler,IEndDragHandler, IDragHandler
+public class AnimalDrag : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler, IPointerEnterHandler, IPointerExitHandler 
 {
     public RectTransform RectTransform;
     private Image image;
     private Vector2 startPosition;
 
-    public event Action<Animal> OnMovedToShelf;
-    public event Action<Animal> OnMovedToList;
+    public event Action<AnimalDrag> OnMovedToShelf;
+    public event Action<AnimalDrag> OnMovedToList;
+    public event Action<AnimalDrag> OnHovered;
+    public event Action<AnimalDrag> OnUnHovered;
     
     public Animal Animal;
     
@@ -54,11 +56,21 @@ public class AnimalDrag : MonoBehaviour, IBeginDragHandler,IEndDragHandler, IDra
     
     public void MoveAnimalToShelf()
     {
-        OnMovedToShelf?.Invoke(Animal);
+        OnMovedToShelf?.Invoke(this);
     }
 
     public void MoveListToList()
     {
-        OnMovedToList?.Invoke(Animal);
+        OnMovedToList?.Invoke(this);
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        OnHovered?.Invoke(this);
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        OnUnHovered?.Invoke(this);
     }
 }

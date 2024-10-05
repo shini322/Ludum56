@@ -7,6 +7,7 @@ public class AnimalsList : MonoBehaviour, IDropHandler
 {
     [SerializeField] private AnimalDrag animalDragPrefab;
     [SerializeField] private AnimalSlot animalSlotPrefab;
+    [SerializeField] private AnimalInfoView animalInfoView;
 
     private List<AnimalDrag> animalDrags = new List<AnimalDrag>();
     private List<AnimalSlot> animalSlots = new List<AnimalSlot>();
@@ -21,6 +22,8 @@ public class AnimalsList : MonoBehaviour, IDropHandler
             animalDrag.SetAnimal(animal);
             animalDrag.OnMovedToShelf += MoveAnimalToShelf;
             
+            animalInfoView.AddAnimal(animalDrag);
+            
             var animalSlot = Instantiate(animalSlotPrefab, transform);
             animalSlot.SetChild(animalDrag.RectTransform);
             animalSlots.Add(animalSlot);
@@ -30,12 +33,12 @@ public class AnimalsList : MonoBehaviour, IDropHandler
         }
     }
 
-    private void MoveAnimalToShelf(Animal animal)
+    private void MoveAnimalToShelf(AnimalDrag animalDrag)
     {
-        if (animals.Contains(animal.Type))
+        if (animals.Contains(animalDrag.Animal.Type))
         {
-            animalDrags[animalSlotIndexMap[animal.Type]].OnMovedToShelf -= MoveAnimalToShelf;
-            animals.Remove(animal.Type);
+            animalDrag.OnMovedToShelf -= MoveAnimalToShelf;
+            animals.Remove(animalDrag.Animal.Type);
         }
         
         Debug.Log(animals.Count);
@@ -46,7 +49,9 @@ public class AnimalsList : MonoBehaviour, IDropHandler
         if (eventData.pointerDrag.TryGetComponent(out AnimalDrag animalDrag) && animals.Add(animalDrag.Animal.Type))
         {
             animalSlots[animalSlotIndexMap[animalDrag.Animal.Type]].SetChild(animalDrag.RectTransform);
+            //animalDrag.isShelf = false;
             animalDrag.OnMovedToShelf += MoveAnimalToShelf;
+            animalDrag.MoveListToList();
         }
     }
 }
