@@ -9,8 +9,10 @@ public class ShelfLot : MonoBehaviour, IDropHandler
     [SerializeField] private TextMeshProUGUI textContainer;
     
     private AnimalSlot animalSlot;
+    private AnimalDrag animalDrag;
     private Shelf shelf;
     private Vector2Int shelfPosition;
+    private float charm;
     private float additionalCharm = 0.0f;
 
     public void Init(AnimalSlot animalSlotPrefab, Shelf shelf, Vector2Int shelfPosition)
@@ -18,7 +20,7 @@ public class ShelfLot : MonoBehaviour, IDropHandler
         animalSlot = Instantiate(animalSlotPrefab, imageContainer);
         this.shelf = shelf;
         this.shelfPosition = shelfPosition;
-        SetAnimalView(null);
+        SetAnimal(null);
     }
 
     public void OnDrop(PointerEventData eventData)
@@ -27,24 +29,50 @@ public class ShelfLot : MonoBehaviour, IDropHandler
         {
             animalSlot.SetChild(animalDrag.RectTransform);
             animalDrag.MoveAnimalToShelf();
-            if (shelf.HasAnimal(animalDrag))
-            {
-                animalDrag.Animal.ShelfLeave(shelf);
-            }
             shelf.AddAnimal(animalDrag, shelfPosition);
-            animalDrag.Animal.ShelfEnter(shelf);
+            //animalDrag.Animal.ShelfEnter(shelf);
+            shelf.AnimalsUpdate();
         }
     }
 
-    public void SetAnimalView(AnimalDrag animalDrag)
+    public void UpdateCharm(float charm)
     {
+        this.charm = charm;
+        UpdateView();
+    }
+
+    public void SetAnimal(AnimalDrag animalDrag)
+    {
+        this.animalDrag = animalDrag;
+
         if (animalDrag == null)
+        {
+            DropValues();
+        }
+        else
+        {
+            charm = animalDrag.Animal.Charm;
+            UpdateView();
+        }
+    }
+
+    private void UpdateView()
+    {
+        var finalCharm = Math.Round(charm + additionalCharm);
+        if (finalCharm <= 0)
         {
             textContainer.text = "";
         }
         else
         {
-            textContainer.text = Math.Round(animalDrag.Animal.Charm + additionalCharm).ToString();
+            textContainer.text = finalCharm.ToString();
         }
+    }
+
+    public void DropValues()
+    {
+        additionalCharm = 0f;
+        textContainer.text = "";
+        animalDrag = null;
     }
 }

@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -8,6 +7,9 @@ public class AnimalInfoView : MonoBehaviour
 {
     [SerializeField] private Image image;
     [SerializeField] private TextMeshProUGUI charmTextGui;
+    [SerializeField] private TextMeshProUGUI nameTextGui;
+    [SerializeField] private TextMeshProUGUI descriptionTextGui;
+    [SerializeField] private TextMeshProUGUI effectDescriptionTextGui;
 
     private List<AnimalDrag> animalDrags = new List<AnimalDrag>();
 
@@ -36,6 +38,9 @@ public class AnimalInfoView : MonoBehaviour
     {
         charmTextGui.text = animalDrag.Animal.Charm.ToString();
         image.sprite = animalDrag.Animal.Sprite;
+        descriptionTextGui.text = animalDrag.Animal.Description;
+        effectDescriptionTextGui.text = animalDrag.Animal.EffectDescription;
+        nameTextGui.text = animalDrag.Animal.Name;
         Debug.Log(animalDrag.Animal.Type);
     }
     
@@ -47,6 +52,9 @@ public class AnimalInfoView : MonoBehaviour
 
     private void Drop()
     {
+        descriptionTextGui.text = "";
+        effectDescriptionTextGui.text = "";
+        nameTextGui.text = "";
         charmTextGui.text = "";
         image.sprite = null;
     }

@@ -6,53 +6,74 @@ public class Shelf : MonoBehaviour
     [SerializeField] private ShelfLot shelfLotPrefab;
     [SerializeField] private AnimalSlot animalSlotPrefab;
 
-    private const int height = 3;
-    private const int width = 3;
-    private ShelfLot[,] shelfLotsMatrix;
-    private Dictionary<AnimalDrag, Vector2Int> animalMap = new Dictionary<AnimalDrag, Vector2Int>();
+    public readonly int Height = 3;
+    public readonly int Width = 3;
+    public ShelfLot[,] ShelfLotsMatrix;
+    private Dictionary<AnimalDrag, Vector2Int> animalToPositionMap = new Dictionary<AnimalDrag, Vector2Int>();
+    public Dictionary<Vector2Int, AnimalDrag> PositionToAnimalMap = new Dictionary<Vector2Int, AnimalDrag>();
 
     private void Start()
     {
-        shelfLotsMatrix = new ShelfLot[width, height];
+        ShelfLotsMatrix = new ShelfLot[Width, Height];
 
-        for (int y = 0; y < height; y++)
+        for (int x = 0; x < Width; x++)
         {
-            for (int x = 0; x < width; x++)
+            for (int y = 0; y < Height; y++)
             {
                 var shelfLot = Instantiate(shelfLotPrefab, transform);
                 shelfLot.Init(animalSlotPrefab, this, new Vector2Int(x, y));
-                shelfLotsMatrix[x, y] = shelfLot;
+                ShelfLotsMatrix[x, y] = shelfLot;
             }
         }
     }
 
     public bool HasAnimal(AnimalDrag animalDrag)
     {
-        return animalMap.ContainsKey(animalDrag);
+        return animalToPositionMap.ContainsKey(animalDrag);
     }
 
     public void AddAnimal(AnimalDrag animalDrag, Vector2Int position)
     {
-        if (animalMap.TryAdd(animalDrag, position))
+        if (animalToPositionMap.TryAdd(animalDrag, position))
         {
+            PositionToAnimalMap.Add(position, animalDrag);
             animalDrag.OnMovedToList += MoveListToList;
-            shelfLotsMatrix[position.x, position.y].SetAnimalView(animalDrag);
+            ShelfLotsMatrix[position.x, position.y].SetAnimal(animalDrag);
         }
         else
         {
-            var oldPosition = animalMap[animalDrag];
-            shelfLotsMatrix[oldPosition.x, oldPosition.y].SetAnimalView(null);
-            animalMap[animalDrag] = position;
-            shelfLotsMatrix[position.x, position.y].SetAnimalView(animalDrag);
+            var oldPosition = animalToPositionMap[animalDrag];
+            ShelfLotsMatrix[oldPosition.x, oldPosition.y].SetAnimal(null);
+            animalToPositionMap[animalDrag] = position;
+            PositionToAnimalMap.Remove(oldPosition);
+            PositionToAnimalMap[position] = animalDrag;
+            ShelfLotsMatrix[position.x, position.y].SetAnimal(animalDrag);
         }
     }
 
     public void MoveListToList(AnimalDrag animalDrag)
     {
         animalDrag.OnMovedToList -= MoveListToList;
-        animalMap.Remove(animalDrag);
-        animalDrag.Animal.ShelfLeave(this);
+        var position = animalToPositionMap[animalDrag];
+        animalToPositionMap.Remove(animalDrag);
+        PositionToAnimalMap.Remove(position);
+        AnimalsUpdate();
     }
-    
-    
+
+    public void AnimalsUpdate()
+    {
+        for (int x = 0; x < ShelfLotsMatrix.GetLength(0); x++)
+        {
+            for (int y = 0; y < ShelfLotsMatrix.GetLength(1); y++)
+            {
+                ShelfLotsMatrix[x, y].DropValues();
+                var position = new Vector2Int(x, y);
+
+                if (PositionToAnimalMap.TryGetValue(position, out AnimalDrag animalDrag))
+                {
+                    animalDrag.Animal.ShelfEnter(this, position);
+                }
+            }
+        }
+    }
 }
