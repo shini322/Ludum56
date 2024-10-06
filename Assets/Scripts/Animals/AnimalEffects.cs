@@ -273,7 +273,10 @@ public class AnimalEffects
         for (int y = 0; y < shelf.Height; y++)
         {
             var slot = shelf.ShelfLotsMatrix[position.x, y];
-            slot.UpdateCharm(slot.Charm + 2f);
+            if (shelf.PositionToAnimalMap.TryGetValue(new Vector2Int(position.x, y), out AnimalDrag animalDrag) && animalDrag.Animal.Type != AnimalType.Frog)
+            {
+                slot.UpdateCharm(slot.Charm + 2f);
+            }
         }
         
         return true;
@@ -281,7 +284,34 @@ public class AnimalEffects
     
     private static bool Fog(Shelf shelf, Vector2Int position)
     {
-        // todo описать
+        Vector2Int[] neighbors = new Vector2Int[]
+        {
+            new Vector2Int(position.x + 1, position.y + 1),
+            new Vector2Int(position.x + 1, position.y - 1),
+            new Vector2Int(position.x - 1, position.y + 1),
+            new Vector2Int(position.x - 1, position.y - 1),
+            new Vector2Int(position.x + 1, position.y),
+            new Vector2Int(position.x - 1, position.y),
+            new Vector2Int(position.x, position.y - 1),
+            new Vector2Int(position.x, position.y + 1),
+        };
+
+        float maxCharm = 0;
+        
+        for (int i = 0; i < neighbors.Length; i++)
+        {
+            var neighborPosition = neighbors[i];
+
+            if (shelf.PositionToAnimalMap.TryGetValue(neighbors[i], out AnimalDrag animalDrag))
+            {
+                var slot = shelf.ShelfLotsMatrix[neighborPosition.x, neighborPosition.y];
+                maxCharm = Mathf.Max(maxCharm, slot.Charm);
+            }
+        }
+        var currentSlot = shelf.ShelfLotsMatrix[position.x, position.y];
+        currentSlot.UpdateCharm(maxCharm);
+
+        return true;
         
         return true;
     }

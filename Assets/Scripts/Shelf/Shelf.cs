@@ -6,6 +6,7 @@ public class Shelf : MonoBehaviour
 {
     [SerializeField] private ShelfLot shelfLotPrefab;
     [SerializeField] private AnimalSlot animalSlotPrefab;
+    [SerializeField] private AnimalsList animalsList;
 
     public readonly int Height = 3;
     public readonly int Width = 3;
@@ -30,18 +31,22 @@ public class Shelf : MonoBehaviour
         }
     }
 
-    public bool HasAnimal(AnimalDrag animalDrag)
+    public void AddAnimal(AnimalDrag animalDrag, Vector2Int toPosition)
     {
-        return animalToPositionMap.ContainsKey(animalDrag);
-    }
-
-    public void AddAnimal(AnimalDrag animalDrag, Vector2Int position)
-    {
-        if (animalToPositionMap.TryAdd(animalDrag, position))
+        if (animalToPositionMap.TryAdd(animalDrag, toPosition))
         {
-            PositionToAnimalMap.Add(position, animalDrag);
+            if (PositionToAnimalMap.TryGetValue(toPosition, out var oldAnimalDrag))
+            {
+                MoveListToList(oldAnimalDrag);
+                PositionToAnimalMap[toPosition] = animalDrag;
+                animalsList.AddAnimal(oldAnimalDrag);
+            }
+            else
+            {
+                PositionToAnimalMap.Add(toPosition, animalDrag);
+            }
             animalDrag.OnMovedToList += MoveListToList;
-            ShelfLotsMatrix[position.x, position.y].SetAnimal(animalDrag);
+            ShelfLotsMatrix[toPosition.x, toPosition.y].SetAnimal(animalDrag);
             foreach (AnimalEffectsEnum effect in animalDrag.Animal.Effects)
             {
                 sortedEffects.Add(effect);
@@ -51,12 +56,24 @@ public class Shelf : MonoBehaviour
         }
         else
         {
-            var oldPosition = animalToPositionMap[animalDrag];
-            ShelfLotsMatrix[oldPosition.x, oldPosition.y].SetAnimal(null);
-            animalToPositionMap[animalDrag] = position;
-            PositionToAnimalMap.Remove(oldPosition);
-            PositionToAnimalMap[position] = animalDrag;
-            ShelfLotsMatrix[position.x, position.y].SetAnimal(animalDrag);
+            // позиция с которой пришли
+            var fromPosition = animalToPositionMap[animalDrag];
+            // Зверь, который стоял уже на этой клетке
+            
+            if (PositionToAnimalMap.TryGetValue(toPosition, out var oldAnimalDrag))
+            {
+                animalToPositionMap[oldAnimalDrag] = fromPosition;
+                PositionToAnimalMap[fromPosition] = oldAnimalDrag;
+                ShelfLotsMatrix[fromPosition.x, fromPosition.y].SetAnimal(oldAnimalDrag);
+            }
+            else
+            {
+                PositionToAnimalMap.Remove(fromPosition);
+                ShelfLotsMatrix[fromPosition.x, fromPosition.y].SetAnimal(null);
+            }
+            animalToPositionMap[animalDrag] = toPosition;
+            PositionToAnimalMap[toPosition] = animalDrag;
+            ShelfLotsMatrix[toPosition.x, toPosition.y].SetAnimal(animalDrag);
         }
     }
 

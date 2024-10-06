@@ -29,17 +29,15 @@ public class ShelfLot : MonoBehaviour, IDropHandler
     {
         if (eventData.pointerDrag.TryGetComponent(out AnimalDrag animalDrag))
         {
-            animalSlot.SetChild(animalDrag.RectTransform);
             animalDrag.MoveAnimalToShelf();
             shelf.AddAnimal(animalDrag, shelfPosition);
-            //animalDrag.Animal.ShelfEnter(shelf);
             shelf.AnimalsUpdate();
         }
     }
 
     public void UpdateCharm(float charm)
     {
-        if (!animalDrag.Animal.CanChangeCharm)
+        if (animalDrag != null && !animalDrag.Animal.CanChangeCharm)
         {
             return;
         }
@@ -58,6 +56,7 @@ public class ShelfLot : MonoBehaviour, IDropHandler
         }
         else
         {
+            animalSlot.SetChild(animalDrag.RectTransform);
             charm = animalDrag.Animal.Charm;
             UpdateView();
         }
@@ -80,6 +79,7 @@ public class ShelfLot : MonoBehaviour, IDropHandler
     {
         additionalCharm = 0f;
         textContainer.text = "";
+        charm = 0;
         animalDrag = null;
     }
 }

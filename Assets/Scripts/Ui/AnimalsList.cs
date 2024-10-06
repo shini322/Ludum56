@@ -46,9 +46,14 @@ public class AnimalsList : MonoBehaviour, IDropHandler
     {
         if (eventData.pointerDrag.TryGetComponent(out AnimalDrag animalDrag) && animals.Add(animalDrag.Animal.Type))
         {
-            animalSlots[animalSlotIndexMap[animalDrag.Animal.Type]].SetChild(animalDrag.RectTransform);
-            animalDrag.OnMovedToShelf += MoveAnimalToShelf;
+            AddAnimal(animalDrag);
             animalDrag.MoveListToList();
         }
+    }
+
+    public void AddAnimal(AnimalDrag animalDrag)
+    {
+        animalSlots[animalSlotIndexMap[animalDrag.Animal.Type]].SetChild(animalDrag.RectTransform);
+        animalDrag.OnMovedToShelf += MoveAnimalToShelf;
     }
 }
