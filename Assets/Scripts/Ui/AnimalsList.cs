@@ -40,8 +40,6 @@ public class AnimalsList : MonoBehaviour, IDropHandler
             animalDrag.OnMovedToShelf -= MoveAnimalToShelf;
             animals.Remove(animalDrag.Animal.Type);
         }
-        
-        Debug.Log(animals.Count);
     }
 
     public void OnDrop(PointerEventData eventData)
@@ -49,7 +47,6 @@ public class AnimalsList : MonoBehaviour, IDropHandler
         if (eventData.pointerDrag.TryGetComponent(out AnimalDrag animalDrag) && animals.Add(animalDrag.Animal.Type))
         {
             animalSlots[animalSlotIndexMap[animalDrag.Animal.Type]].SetChild(animalDrag.RectTransform);
-            //animalDrag.isShelf = false;
             animalDrag.OnMovedToShelf += MoveAnimalToShelf;
             animalDrag.MoveListToList();
         }

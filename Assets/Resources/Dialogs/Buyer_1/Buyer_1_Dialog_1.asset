@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97604250d40e4100a5a52953b43f55bb, type: 3}
+  m_Name: Buyer_1_Dialog_1
+  m_EditorClassIdentifier: 
+  Items:
+  - {fileID: 11400000, guid: fbd3d827e8ea1054594e3aca6ce92c9b, type: 2}
+  - {fileID: 11400000, guid: 01082761013710541b6d7285165c432b, type: 2}
+  - {fileID: 11400000, guid: 21e416139e10fb045b12721e60836106, type: 2}
