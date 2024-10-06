@@ -52,10 +52,12 @@ public class ShelfLot : MonoBehaviour, IDropHandler
 
         if (animalDrag == null)
         {
+            animalSlot.ChangeEmptyState(true);
             DropValues();
         }
         else
         {
+            animalSlot.ChangeEmptyState(false);
             animalSlot.SetChild(animalDrag.RectTransform);
             charm = animalDrag.Animal.Charm;
             UpdateView();
