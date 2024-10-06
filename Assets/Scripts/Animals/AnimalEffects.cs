@@ -127,13 +127,13 @@ public class AnimalEffects
         if (shelf.PositionToAnimalMap.TryGetValue(downSlot, out AnimalDrag animalDrag))
         {
             var slot = shelf.ShelfLotsMatrix[downSlot.x, downSlot.y];
-            slot.UpdateCharm(slot.Charm - 5f);
+            slot.UpdateCharm(slot.Charm - 2f);
         }
         
         if (shelf.PositionToAnimalMap.TryGetValue(upSlot, out AnimalDrag animalDrag1))
         {
             var slot = shelf.ShelfLotsMatrix[upSlot.x, upSlot.y];
-            slot.UpdateCharm(slot.Charm - 5f);
+            slot.UpdateCharm(slot.Charm - 2f);
         }
         
         return true;
@@ -144,13 +144,13 @@ public class AnimalEffects
         if (shelf.PositionToAnimalMap.TryGetValue(new Vector2Int(position.x, position.y + 1), out AnimalDrag animalDrag))
         {
             var slot = shelf.ShelfLotsMatrix[position.x, position.y + 1];
-            slot.UpdateCharm(slot.Charm + 5f);
+            slot.UpdateCharm(slot.Charm + 1f);
         }
         
         if (shelf.PositionToAnimalMap.TryGetValue(new Vector2Int(position.x, position.y - 1), out AnimalDrag animalDrag1))
         {
             var slot = shelf.ShelfLotsMatrix[position.x, position.y - 1];
-            slot.UpdateCharm(slot.Charm + 5f);
+            slot.UpdateCharm(slot.Charm + 1f);
         }
         return true;
     }
