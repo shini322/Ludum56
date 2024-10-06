@@ -93,7 +93,7 @@ public class Shelf : MonoBehaviour
 
     private void SortEffects()
     {
-        sortedEffects = sortedEffects.OrderBy(n => AnimalEffects.EffectsPriority[n]).ToList();
+        sortedEffects = sortedEffects.OrderBy(n => GameResources.Instance.EffectsPriority[n]).ToList();
         Debug.Log(sortedEffects.Count);
     }
 
