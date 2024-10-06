@@ -24,5 +24,5 @@ MonoBehaviour:
     \u0441\u043E\u0441\u0435\u0434\u043D\u0438\u0445 \u0441\u0443\u0449\u0435\u0441\u0442\u0432"
   Charm: 5
   Type: 12
-  Effects: 10000000
+  Effects: 0f000000
   CanChangeCharm: 1
