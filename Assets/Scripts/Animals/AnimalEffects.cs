@@ -13,8 +13,6 @@ public class AnimalEffects
                 return Obida(shelf, position, animal);
             case AnimalEffectsEnum.Luchezar:
                 return Luchezar(shelf, position);
-            case AnimalEffectsEnum.Tron:
-                return Tron(shelf, position);
             case AnimalEffectsEnum.Korni:
                 return Korni(shelf, position);
             case AnimalEffectsEnum.Shumnii:
@@ -75,42 +73,34 @@ public class AnimalEffects
     {
         Vector2Int[] neighbors = new Vector2Int[]
         {
+            new Vector2Int(position.x + 1, position.y + 1),
+            new Vector2Int(position.x + 1, position.y - 1),
+            new Vector2Int(position.x - 1, position.y + 1),
+            new Vector2Int(position.x - 1, position.y - 1),
             new Vector2Int(position.x + 1, position.y),
             new Vector2Int(position.x - 1, position.y),
-            new Vector2Int(position.x, position.y + 1),
             new Vector2Int(position.x, position.y - 1),
+            new Vector2Int(position.x, position.y + 1),
         };
+
+        var animalDrag = shelf.PositionToAnimalMap[position];
+        var charmForChange = 3f;
+        var currentSlot = shelf.ShelfLotsMatrix[position.x, position.y];
+        if (currentSlot.Charm > animalDrag.Animal.Charm)
+        {
+            charmForChange *= -1f;
+        }
 
         for (int i = 0; i < neighbors.Length; i++)
         {
-            var neighborPosition = neighbors[i];
-
-            if (shelf.PositionToAnimalMap.TryGetValue(neighbors[i], out AnimalDrag animalDrag))
+            if (shelf.PositionToAnimalMap.TryGetValue(neighbors[i], out AnimalDrag neighbourAnimalDrag))
             {
-                var charmForChange = 3f;
+                var neighborPosition = neighbors[i];
                 var slot = shelf.ShelfLotsMatrix[neighborPosition.x, neighborPosition.y];
-
-                if (slot.Charm > animalDrag.Animal.Charm)
-                {
-                    charmForChange *= -1f;
-                }
-
                 slot.UpdateCharm(slot.Charm + charmForChange);
             }
         }
 
-        return true;
-    }
-    
-    private static bool Tron(Shelf shelf, Vector2Int position)
-    {
-        var lot = shelf.ShelfLotsMatrix[position.x, position.y];
-        if (position.x == (shelf.Width - 1) / 2 && position.y == (shelf.Height - 1) / 2)
-        {
-            return false;
-        } 
-
-        shelf.ShelfLotsMatrix[position.x, position.y].UpdateCharm(lot.Charm + 10f);
         return true;
     }
     
@@ -301,7 +291,6 @@ public enum AnimalEffectsEnum
     Tiran,
     Obida,
     Luchezar,
-    Tron,
     Korni,
     Shumnii,
     Kosoi,

@@ -13,7 +13,6 @@ public class GameResources : Singleton<GameResources>
         new AnimalEffectPriority(){ Name = "Тиран", Effect = AnimalEffectsEnum.Tiran, Priority = 11 },
         new AnimalEffectPriority(){ Name = "Обидчивый", Effect = AnimalEffectsEnum.Obida, Priority = 21 },
         new AnimalEffectPriority(){ Name = "Лучезарность",Effect = AnimalEffectsEnum.Luchezar, Priority = 22 },
-        new AnimalEffectPriority(){ Name = "Борьба за трон",Effect = AnimalEffectsEnum.Tron, Priority = 12 },
         new AnimalEffectPriority(){ Name = "Жадные корни",Effect = AnimalEffectsEnum.Korni, Priority = 23 },
         new AnimalEffectPriority(){ Name = "Шумный",Effect = AnimalEffectsEnum.Shumnii, Priority = 24 },
         new AnimalEffectPriority(){ Name = "Косоглазый",Effect = AnimalEffectsEnum.Kosoi, Priority = 25 },

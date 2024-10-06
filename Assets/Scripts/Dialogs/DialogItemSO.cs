@@ -4,4 +4,11 @@ using UnityEngine;
 public class DialogItemSO : ScriptableObject
 {
     [TextArea(3, 10)] [SerializeField] public string Text;
+    [SerializeField] public DialogItemType Type;
+}
+
+public enum DialogItemType
+{
+    Buyer,
+    Player,
 }

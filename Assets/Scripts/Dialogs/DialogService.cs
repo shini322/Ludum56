@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,13 +9,16 @@ public class DialogService : MonoBehaviour
     [SerializeField] private TextMeshProUGUI dialogTextMesh;
     [SerializeField] private Button nextButton;
     [SerializeField] private RectTransform container;
+    [SerializeField] private AudioClip doorClip;
+    [SerializeField] private AudioClip stepsClip;
     
     private DialogSO currentDialog;
     private int dialogItemIndex;
 
     private void Start()
     {
-        ShowDialog(LevelService.Instance.CurrentBuyer.StartDialog);
+        dialogTextMesh.text = "";
+        StartCoroutine(PlayerSounds());
     }
 
     public void NextDialog()
@@ -50,6 +54,7 @@ public class DialogService : MonoBehaviour
     {
         dialogTextMesh.text = "";
         DisableDialog();
+        AudioService.Instance.ChangeMusicVolume(.5f);
     }
 
     private void EnableDialog()
@@ -62,5 +67,17 @@ public class DialogService : MonoBehaviour
     {
         nextButton.onClick.RemoveListener(NextDialog);
         container.gameObject.SetActive(false);
+    }
+
+    private IEnumerator PlayerSounds()
+    {
+        yield return new WaitForSeconds(.2f);
+        AudioService.Instance.PlayerMusic();
+        AudioService.Instance.ChangeMusicVolume(.2f);
+        AudioService.Instance.PlayOneShot(doorClip);
+        yield return new WaitForSeconds(doorClip.length);
+        AudioService.Instance.PlayOneShot(stepsClip);
+        yield return new WaitForSeconds(stepsClip.length);
+        ShowDialog(LevelService.Instance.CurrentBuyer.StartDialog);
     }
 }

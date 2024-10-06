@@ -7,6 +7,7 @@ public class AnimalInfoView : MonoBehaviour
 {
     [SerializeField] private Image image;
     [SerializeField] private TextMeshProUGUI charmTextGui;
+    [SerializeField] private RectTransform charmContainer;
     [SerializeField] private TextMeshProUGUI nameTextGui;
     [SerializeField] private TextMeshProUGUI effectDescriptionTextGui;
 
@@ -35,10 +36,12 @@ public class AnimalInfoView : MonoBehaviour
 
     private void AnimalHovered(AnimalDrag animalDrag)
     {
+        charmContainer.gameObject.SetActive(true);
         charmTextGui.text = animalDrag.Animal.Charm.ToString();
         image.sprite = animalDrag.Animal.Sprite;
         effectDescriptionTextGui.text = animalDrag.Animal.EffectDescription;
         nameTextGui.text = animalDrag.Animal.Name;
+        ChangeOpacity(1);
     }
     
     private void AnimalUnHovered(AnimalDrag animalDrag)
@@ -53,5 +56,14 @@ public class AnimalInfoView : MonoBehaviour
         nameTextGui.text = "";
         charmTextGui.text = "";
         image.sprite = null;
+        ChangeOpacity(0);
+        charmContainer.gameObject.SetActive(false);
+    }
+
+    private void ChangeOpacity(float opacity)
+    {
+        var color = image.color;
+        color.a = opacity;
+        image.color = color;
     }
 }
