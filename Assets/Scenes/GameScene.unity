@@ -662,7 +662,7 @@ MonoBehaviour:
     Priority: 32
   - Name: "\u0422\u0440\u0430\u0443\u0440"
     Effect: 11
-    Priority: 12
+    Priority: 33
   - Name: "\u0421\u0435\u0441\u0442\u0440\u0435\u043D\u043D\u043E\u0441\u0442\u044C
       (\u043D\u0435 \u0441\u0434\u0435\u043B\u0430\u043D\u0430)"
     Effect: 12
