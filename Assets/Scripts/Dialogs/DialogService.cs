@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class DialogService : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI dialogTextMesh;
+    [SerializeField] private TextMeshProUGUI dialogCharacterTextMesh;
     [SerializeField] private Button nextButton;
     [SerializeField] private RectTransform container;
     [SerializeField] private AudioClip doorClip;
@@ -18,6 +19,7 @@ public class DialogService : MonoBehaviour
     private void Start()
     {
         dialogTextMesh.text = "";
+        dialogCharacterTextMesh.text = "";
         StartCoroutine(PlayerSounds());
     }
 
@@ -32,8 +34,10 @@ public class DialogService : MonoBehaviour
         {
             return;
         }
-        
-        dialogTextMesh.text = currentDialog.Items[dialogItemIndex].Text;
+
+        var item = currentDialog.Items[dialogItemIndex];
+        dialogTextMesh.text = item.Text;
+        dialogCharacterTextMesh.text = GameResources.Instance.DialogCharacterName[item.Type];
         dialogItemIndex += 1;
 
         if (currentDialog.Items.Count < dialogItemIndex + 1)
@@ -53,6 +57,7 @@ public class DialogService : MonoBehaviour
     private void EndDialog()
     {
         dialogTextMesh.text = "";
+        dialogCharacterTextMesh.text = "";
         DisableDialog();
         AudioService.Instance.ChangeMusicVolume(.5f);
     }

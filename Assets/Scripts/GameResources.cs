@@ -29,6 +29,12 @@ public class GameResources : Singleton<GameResources>
     };
 
     public Dictionary<AnimalEffectsEnum, int> EffectsPriority = new ();
+
+    public readonly Dictionary<CharacterType, string> DialogCharacterName = new()
+    {
+        { CharacterType.Elf, "Эльфийка" },
+        { CharacterType.Player, "Торговец" }
+    };
     
     private void Init()
     {
