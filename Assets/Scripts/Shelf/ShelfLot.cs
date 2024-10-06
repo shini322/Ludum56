@@ -32,6 +32,7 @@ public class ShelfLot : MonoBehaviour, IDropHandler
             animalDrag.MoveAnimalToShelf();
             shelf.AddAnimal(animalDrag, shelfPosition);
             shelf.AnimalsUpdate();
+            AudioService.Instance.PlayPlaceCellClip();
         }
     }
 

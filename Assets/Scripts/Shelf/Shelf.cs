@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -8,10 +9,12 @@ public class Shelf : MonoBehaviour
     [SerializeField] private AnimalSlot animalSlotPrefab;
     [SerializeField] private AnimalsList animalsList;
 
+    public event Action WasUpdated;
+
     public readonly int Height = 3;
     public readonly int Width = 3;
     public ShelfLot[,] ShelfLotsMatrix;
-    private Dictionary<AnimalDrag, Vector2Int> animalToPositionMap = new Dictionary<AnimalDrag, Vector2Int>();
+    public Dictionary<AnimalDrag, Vector2Int> animalToPositionMap = new Dictionary<AnimalDrag, Vector2Int>();
     public Dictionary<Vector2Int, AnimalDrag> PositionToAnimalMap = new Dictionary<Vector2Int, AnimalDrag>();
     private List<AnimalEffectsEnum> sortedEffects = new List<AnimalEffectsEnum>();
     private Dictionary<AnimalEffectsEnum, AnimalDrag> sortedEffectsAnimalMap = new Dictionary<AnimalEffectsEnum, AnimalDrag>();
@@ -101,7 +104,6 @@ public class Shelf : MonoBehaviour
     private void SortEffects()
     {
         sortedEffects = sortedEffects.OrderBy(n => GameResources.Instance.EffectsPriority[n]).ToList();
-        Debug.Log(sortedEffects.Count);
     }
 
     public void AnimalsUpdate()
@@ -129,5 +131,7 @@ public class Shelf : MonoBehaviour
 
             AnimalEffects.UseEffect(this, animalToPositionMap[animal], effect, animal.Animal);
         }
+        
+        WasUpdated?.Invoke();
     }
 }

@@ -20,5 +20,6 @@ public class DialogSO : ScriptableObject
 public enum CharacterType
 {
     Elf,
+    Wolf,
     Player,
 }

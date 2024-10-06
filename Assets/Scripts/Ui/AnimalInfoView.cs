@@ -47,7 +47,6 @@ public class AnimalInfoView : MonoBehaviour
     private void AnimalUnHovered(AnimalDrag animalDrag)
     {
         Drop();
-        Debug.Log(animalDrag.Animal.Type);
     }
 
     private void Drop()

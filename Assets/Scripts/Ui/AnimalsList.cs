@@ -37,6 +37,14 @@ public class AnimalsList : MonoBehaviour, IDropHandler
         }
     }
 
+    public void UpdateChooseAnimal()
+    {
+        foreach (AnimalType animal in animals)
+        {
+            animalSlots[animalSlotIndexMap[animal]].SetChooseImageState(LevelService.Instance.CurrentBuyer.AnimalWantToBuy == animal);
+        }
+    }
+
     private void MoveAnimalToShelf(AnimalDrag animalDrag)
     {
         if (animals.Contains(animalDrag.Animal.Type))

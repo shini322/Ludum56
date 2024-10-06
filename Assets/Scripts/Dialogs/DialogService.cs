@@ -6,20 +6,21 @@ using UnityEngine.UI;
 
 public class DialogService : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI dialogTextMesh;
-    [SerializeField] private TextMeshProUGUI dialogCharacterTextMesh;
+    [SerializeField] private DialogItemView dialogBuyer;
+    [SerializeField] private DialogItemView dialogPlayer;
     [SerializeField] private Button nextButton;
     [SerializeField] private RectTransform container;
     [SerializeField] private AudioClip doorClip;
     [SerializeField] private AudioClip stepsClip;
+    [SerializeField] private AnimalsList animalsList;
     
     private DialogSO currentDialog;
     private int dialogItemIndex;
 
     private void Start()
     {
-        dialogTextMesh.text = "";
-        dialogCharacterTextMesh.text = "";
+        dialogBuyer.gameObject.SetActive(false);
+        dialogPlayer.gameObject.SetActive(false);
         StartCoroutine(PlayerSounds());
     }
 
@@ -36,8 +37,20 @@ public class DialogService : MonoBehaviour
         }
 
         var item = currentDialog.Items[dialogItemIndex];
-        dialogTextMesh.text = item.Text;
-        dialogCharacterTextMesh.text = GameResources.Instance.DialogCharacterName[item.Type];
+        DialogItemView dialog;
+        if (item.Type == CharacterType.Player)
+        {
+            dialogBuyer.gameObject.SetActive(false);
+            dialogPlayer.gameObject.SetActive(true);
+            dialog = dialogPlayer;
+        }
+        else
+        {
+            dialogBuyer.gameObject.SetActive(true);
+            dialogPlayer.gameObject.SetActive(false);
+            dialog = dialogBuyer;
+        }
+        dialog.SetText(item.Text, GameResources.Instance.DialogCharacterName[item.Type]);
         dialogItemIndex += 1;
 
         if (currentDialog.Items.Count < dialogItemIndex + 1)
@@ -56,10 +69,11 @@ public class DialogService : MonoBehaviour
 
     private void EndDialog()
     {
-        dialogTextMesh.text = "";
-        dialogCharacterTextMesh.text = "";
+        dialogBuyer.gameObject.SetActive(false);
+        dialogPlayer.gameObject.SetActive(false);
         DisableDialog();
         AudioService.Instance.ChangeMusicVolume(.5f);
+        animalsList.UpdateChooseAnimal();
     }
 
     private void EnableDialog()

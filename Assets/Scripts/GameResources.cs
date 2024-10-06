@@ -33,7 +33,8 @@ public class GameResources : Singleton<GameResources>
     public readonly Dictionary<CharacterType, string> DialogCharacterName = new()
     {
         { CharacterType.Elf, "Эльфийка" },
-        { CharacterType.Player, "Торговец" }
+        { CharacterType.Player, "Торговец" },
+        { CharacterType.Wolf, "Вервульф" }
     };
     
     private void Init()

@@ -5,8 +5,14 @@ public class AudioService : Singleton<AudioService>
     [SerializeField] private AudioSource effectsSource;
     [SerializeField] private AudioSource musicSource;
     [SerializeField] private AudioClip musicClip;
+    [SerializeField] private AudioClip placeCellClip;
 
-    public void PlayOneShot(AudioClip clip)
+    public void PlayPlaceCellClip()
+    {
+        effectsSource.PlayOneShot(placeCellClip);
+    }
+
+    public void PlayOneShot( AudioClip clip )
     {
         effectsSource.PlayOneShot(clip);
     }
