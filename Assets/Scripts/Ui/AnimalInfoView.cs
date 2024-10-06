@@ -41,7 +41,6 @@ public class AnimalInfoView : MonoBehaviour
         descriptionTextGui.text = animalDrag.Animal.Description;
         effectDescriptionTextGui.text = animalDrag.Animal.EffectDescription;
         nameTextGui.text = animalDrag.Animal.Name;
-        Debug.Log(animalDrag.Animal.Type);
     }
     
     private void AnimalUnHovered(AnimalDrag animalDrag)

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Shelf : MonoBehaviour
@@ -11,7 +12,9 @@ public class Shelf : MonoBehaviour
     public ShelfLot[,] ShelfLotsMatrix;
     private Dictionary<AnimalDrag, Vector2Int> animalToPositionMap = new Dictionary<AnimalDrag, Vector2Int>();
     public Dictionary<Vector2Int, AnimalDrag> PositionToAnimalMap = new Dictionary<Vector2Int, AnimalDrag>();
-
+    private List<AnimalEffectsEnum> sortedEffects = new List<AnimalEffectsEnum>();
+    private Dictionary<AnimalEffectsEnum, AnimalDrag> sortedEffectsAnimalMap = new Dictionary<AnimalEffectsEnum, AnimalDrag>();
+    
     private void Start()
     {
         ShelfLotsMatrix = new ShelfLot[Width, Height];
@@ -39,6 +42,12 @@ public class Shelf : MonoBehaviour
             PositionToAnimalMap.Add(position, animalDrag);
             animalDrag.OnMovedToList += MoveListToList;
             ShelfLotsMatrix[position.x, position.y].SetAnimal(animalDrag);
+            foreach (AnimalEffectsEnum effect in animalDrag.Animal.Effects)
+            {
+                sortedEffects.Add(effect);
+                sortedEffectsAnimalMap.Add(effect, animalDrag);
+            }
+            SortEffects();
         }
         else
         {
@@ -57,23 +66,47 @@ public class Shelf : MonoBehaviour
         var position = animalToPositionMap[animalDrag];
         animalToPositionMap.Remove(animalDrag);
         PositionToAnimalMap.Remove(position);
+        foreach (AnimalEffectsEnum effect in animalDrag.Animal.Effects)
+        {
+            sortedEffects.Remove(effect);
+            sortedEffectsAnimalMap.Remove(effect);
+        }
         AnimalsUpdate();
+    }
+
+    private void SortEffects()
+    {
+        sortedEffects = sortedEffects.OrderBy(n => AnimalEffects.EffectsPriority[n]).ToList();
+        Debug.Log(sortedEffects.Count);
     }
 
     public void AnimalsUpdate()
     {
-        for (int x = 0; x < ShelfLotsMatrix.GetLength(0); x++)
+        foreach (var (animalDrag, position) in animalToPositionMap)
         {
-            for (int y = 0; y < ShelfLotsMatrix.GetLength(1); y++)
-            {
-                ShelfLotsMatrix[x, y].DropValues();
-                var position = new Vector2Int(x, y);
-
-                if (PositionToAnimalMap.TryGetValue(position, out AnimalDrag animalDrag))
-                {
-                    animalDrag.Animal.ShelfEnter(this, position);
-                }
-            }
+            ShelfLotsMatrix[position.x, position.y].SetAnimal(animalDrag);
         }
+
+        bool wasObida = false;
+        
+        foreach (AnimalEffectsEnum effect in sortedEffects)
+        {
+            var animal = sortedEffectsAnimalMap[effect];
+
+            AnimalEffects.UseEffect(this, animalToPositionMap[animal], effect, animal.Animal);
+        }
+
+        // for (int x = 0; x < ShelfLotsMatrix.GetLength(0); x++)
+        // {
+        //     for (int y = 0; y < ShelfLotsMatrix.GetLength(1); y++)
+        //     {
+        //         var position = new Vector2Int(x, y);
+        //
+        //         if (PositionToAnimalMap.TryGetValue(position, out AnimalDrag animalDrag))
+        //         {
+        //             animalDrag.Animal.ShelfEnter(this, position);
+        //         }
+        //     }
+        // }
     }
 }

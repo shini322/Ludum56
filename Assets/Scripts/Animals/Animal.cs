@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class Animal : ScriptableObject
@@ -8,12 +9,23 @@ public abstract class Animal : ScriptableObject
     [TextArea(3,10)][SerializeField] public string EffectDescription;
     [SerializeField] public float Charm;
     [SerializeField] public AnimalType Type;
+    [SerializeField] public List<AnimalEffectsEnum> Effects;
 
-    public abstract void ShelfEnter(Shelf shelf, Vector2Int position);
+    public abstract bool ShelfEnter(Shelf shelf, Vector2Int position);
 }
 
 public enum AnimalType
 {
     Goblin = 1,
-    Jopa = 2,
+    Moth = 2,
+    Flower = 3,
+    Hare = 4,
+    Mushroom = 5,
+    Parrot = 6,
+    Garlic,
+    Golem,
+    Ghost,
+    Water,
+    Frog,
+    Hedgehog,
 }

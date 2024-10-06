@@ -7,6 +7,8 @@ public class ShelfLot : MonoBehaviour, IDropHandler
 {
     [SerializeField] private RectTransform imageContainer;
     [SerializeField] private TextMeshProUGUI textContainer;
+
+    public float Charm => charm;
     
     private AnimalSlot animalSlot;
     private AnimalDrag animalDrag;
@@ -59,7 +61,7 @@ public class ShelfLot : MonoBehaviour, IDropHandler
     private void UpdateView()
     {
         var finalCharm = Math.Round(charm + additionalCharm);
-        if (finalCharm <= 0)
+        if (animalDrag == null)
         {
             textContainer.text = "";
         }
