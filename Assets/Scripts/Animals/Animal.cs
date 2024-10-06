@@ -5,6 +5,7 @@ using UnityEngine;
 public class Animal : ScriptableObject
 {
     [SerializeField] public Sprite Sprite;
+    [SerializeField] public Sprite TooltipSprite;
     [SerializeField] public string Name;
     [TextArea(3,10)][SerializeField] public string Description;
     [TextArea(3,10)][SerializeField] public string EffectDescription;

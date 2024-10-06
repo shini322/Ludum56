@@ -10,7 +10,7 @@ public class ShelfLot : MonoBehaviour, IDropHandler
 
     public float Charm => charm;
     
-    private AnimalSlot animalSlot;
+    public AnimalSlot animalSlot;
     private AnimalDrag animalDrag;
     private Shelf shelf;
     private Vector2Int shelfPosition;

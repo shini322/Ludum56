@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fc5b9d5b7474ea1bbf23c465888a0c7, type: 3}
   m_Name: Frog_Animal
   m_EditorClassIdentifier: 
-  Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  Sprite: {fileID: 21300000, guid: b146b8548dcb1124090190c531d8f257, type: 3}
+  TooltipSprite: {fileID: 0}
   Name: "<b>\u0425\u043B\u0435\u0431\u043E\u0431\u0443\u043B\u043E\u0447\u043D\u044B\u0439
     \u0436\u0430\u0431</b>"
   Description: "\u0421\u044A\u0435\u0434\u043E\u0431\u043D\u043E? \u041A\u0442\u043E

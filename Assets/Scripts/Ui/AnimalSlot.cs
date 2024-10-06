@@ -4,14 +4,15 @@ using UnityEngine.UI;
 public class AnimalSlot : MonoBehaviour
 {
     [SerializeField] private RectTransform Container;
-    [SerializeField] private Sprite emptySprite;
-    [SerializeField] private Sprite fullSprite;
-    [SerializeField] private Image image;
+    [SerializeField] private Image emptyImage;
+    [SerializeField] private Image fullImage;
+    [SerializeField] private Image chooseImage;
 
     private bool isEmpty = true;
 
     private void Awake()
     {
+        chooseImage.gameObject.SetActive(false);
         UpdateSprite();
     }
 
@@ -19,6 +20,11 @@ public class AnimalSlot : MonoBehaviour
     {
         rect.SetParent(Container, false);
         rect.anchoredPosition = Vector2.zero;   
+    }
+
+    public void SetChooseImageState(bool value)
+    {
+        chooseImage.gameObject.SetActive(value);
     }
 
     public void ChangeEmptyState(bool value)
@@ -29,6 +35,7 @@ public class AnimalSlot : MonoBehaviour
 
     private void UpdateSprite()
     {
-        image.sprite = isEmpty ? emptySprite : fullSprite;
+        emptyImage.gameObject.SetActive(isEmpty);
+        fullImage.gameObject.SetActive(!isEmpty);
     }
 }

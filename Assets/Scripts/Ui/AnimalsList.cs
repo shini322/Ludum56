@@ -25,6 +25,10 @@ public class AnimalsList : MonoBehaviour, IDropHandler
             animalInfoView.AddAnimal(animalDrag);
             
             var animalSlot = Instantiate(animalSlotPrefab, transform);
+            if (LevelService.Instance.CurrentBuyer.AnimalWantToBuy == animal.Type)
+            {
+                animalSlot.SetChooseImageState(true);
+            }
             animalSlot.SetChild(animalDrag.RectTransform);
             animalSlots.Add(animalSlot);
             animalSlotIndexMap.Add(animal.Type, animalDrags.Count);
@@ -39,6 +43,7 @@ public class AnimalsList : MonoBehaviour, IDropHandler
         {
             animalDrag.OnMovedToShelf -= MoveAnimalToShelf;
             animals.Remove(animalDrag.Animal.Type);
+            animalSlots[animalSlotIndexMap[animalDrag.Animal.Type]].SetChooseImageState(false);
         }
     }
 
@@ -48,6 +53,7 @@ public class AnimalsList : MonoBehaviour, IDropHandler
         {
             AddAnimal(animalDrag);
             animalDrag.MoveListToList();
+            animalSlots[animalSlotIndexMap[animalDrag.Animal.Type]].SetChooseImageState(LevelService.Instance.CurrentBuyer.AnimalWantToBuy == animalDrag.Animal.Type);
         }
     }
 

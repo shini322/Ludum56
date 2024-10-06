@@ -38,7 +38,7 @@ public class AnimalInfoView : MonoBehaviour
     {
         charmContainer.gameObject.SetActive(true);
         charmTextGui.text = animalDrag.Animal.Charm.ToString();
-        image.sprite = animalDrag.Animal.Sprite;
+        image.sprite = animalDrag.Animal.TooltipSprite;
         effectDescriptionTextGui.text = animalDrag.Animal.EffectDescription;
         nameTextGui.text = animalDrag.Animal.Name;
         ChangeOpacity(1);

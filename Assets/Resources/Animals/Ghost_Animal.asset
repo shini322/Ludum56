@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fc5b9d5b7474ea1bbf23c465888a0c7, type: 3}
   m_Name: Ghost_Animal
   m_EditorClassIdentifier: 
-  Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  Sprite: {fileID: 21300000, guid: d34e432e44b883f438cbbcbb9b2048d7, type: 3}
   Name: "<b>\u041F\u0435\u0447\u0430\u043B\u044C\u043D\u043E\u0435 \u043F\u0440\u0438\u0432\u0435\u0434\u0435\u043D\u0438\u0435</b>"
   Description: "\u0412\u0441\u0435 \u0435\u0449\u0435 \u0440\u044B\u0449\u0435\u0442
     \u0432 \u043F\u043E\u0438\u0441\u043A\u0430\u0445 \u0441\u0432\u0435\u0442\u043B\u043E\u0432\u043E\u043B\u043E\u0441\u043E\u0439

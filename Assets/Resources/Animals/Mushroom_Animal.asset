@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fc5b9d5b7474ea1bbf23c465888a0c7, type: 3}
   m_Name: Mushroom_Animal
   m_EditorClassIdentifier: 
-  Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  Sprite: {fileID: 21300000, guid: a83571f662f78a34b8dc35dea118b786, type: 3}
   Name: "<b>\u041F\u043E\u0433\u0430\u043D\u044B\u0447</b>"
   Description: "\u041F\u0440\u0438\u043D\u0446\u0435\u0441\u0441\u0430 \u0432 \u0434\u0440\u0443\u0433\u043E\u043C
     \u0437\u0430\u043C\u043A\u0435."

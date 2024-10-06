@@ -47,6 +47,8 @@ public class Shelf : MonoBehaviour
             }
             animalDrag.OnMovedToList += MoveListToList;
             ShelfLotsMatrix[toPosition.x, toPosition.y].SetAnimal(animalDrag);
+            ShelfLotsMatrix[toPosition.x, toPosition.y].animalSlot.SetChooseImageState(LevelService.Instance.CurrentBuyer.AnimalWantToBuy == animalDrag.Animal.Type);
+
             foreach (AnimalEffectsEnum effect in animalDrag.Animal.Effects)
             {
                 sortedEffects.Add(effect);
@@ -65,14 +67,18 @@ public class Shelf : MonoBehaviour
                 animalToPositionMap[oldAnimalDrag] = fromPosition;
                 PositionToAnimalMap[fromPosition] = oldAnimalDrag;
                 ShelfLotsMatrix[fromPosition.x, fromPosition.y].SetAnimal(oldAnimalDrag);
+                ShelfLotsMatrix[fromPosition.x, fromPosition.y].animalSlot.SetChooseImageState(LevelService.Instance.CurrentBuyer.AnimalWantToBuy == oldAnimalDrag.Animal.Type);
             }
             else
             {
                 PositionToAnimalMap.Remove(fromPosition);
                 ShelfLotsMatrix[fromPosition.x, fromPosition.y].SetAnimal(null);
+                ShelfLotsMatrix[fromPosition.x, fromPosition.y].animalSlot.SetChooseImageState(false);
+
             }
             animalToPositionMap[animalDrag] = toPosition;
             PositionToAnimalMap[toPosition] = animalDrag;
+            ShelfLotsMatrix[toPosition.x, toPosition.y].animalSlot.SetChooseImageState(LevelService.Instance.CurrentBuyer.AnimalWantToBuy == animalDrag.Animal.Type);
             ShelfLotsMatrix[toPosition.x, toPosition.y].SetAnimal(animalDrag);
         }
     }
@@ -83,6 +89,7 @@ public class Shelf : MonoBehaviour
         var position = animalToPositionMap[animalDrag];
         animalToPositionMap.Remove(animalDrag);
         PositionToAnimalMap.Remove(position);
+        ShelfLotsMatrix[position.x, position.y].animalSlot.SetChooseImageState(false);
         foreach (AnimalEffectsEnum effect in animalDrag.Animal.Effects)
         {
             sortedEffects.Remove(effect);

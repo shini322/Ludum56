@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fc5b9d5b7474ea1bbf23c465888a0c7, type: 3}
   m_Name: Hare_Animal
   m_EditorClassIdentifier: 
-  Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  Sprite: {fileID: 21300000, guid: 97f62916b4236b84083ba2d99d7cadfe, type: 3}
   Name: "<b>\u0417\u0430\u044F\u0446 \u0440\u043E\u0433\u0430\u0447</b>"
   Description: "\u041E\u043D \u043F\u0440\u043E\u0441\u0442\u043E \u0445\u043E\u0442\u0435\u043B
     \u043C\u043E\u0440\u043A\u043E\u0432\u043A\u0443..."
