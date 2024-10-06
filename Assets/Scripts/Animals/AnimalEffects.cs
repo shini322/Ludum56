@@ -3,27 +3,6 @@ using UnityEngine;
 
 public class AnimalEffects
 {
-    public static Dictionary<AnimalEffectsEnum, int> EffectsPriority = new Dictionary<AnimalEffectsEnum, int>()
-    {
-        { AnimalEffectsEnum.Tiran, 11 },
-        { AnimalEffectsEnum.Obida, 21 },
-        { AnimalEffectsEnum.Luchezar, 22 },
-        { AnimalEffectsEnum.Tron, 12 },
-        { AnimalEffectsEnum.Korni, 23 },
-        { AnimalEffectsEnum.Shumnii, 24 },
-        { AnimalEffectsEnum.Kosoi, 25 },
-        { AnimalEffectsEnum.BratVse, 0 },
-        { AnimalEffectsEnum.Karamba, 26 },
-        { AnimalEffectsEnum.Vzglyad, 27 },
-        { AnimalEffectsEnum.Zapah, 28 },
-        { AnimalEffectsEnum.Neizmeni, 32 },
-        { AnimalEffectsEnum.Traur, 12 },
-        { AnimalEffectsEnum.Sister, 31 },
-        { AnimalEffectsEnum.Water, 13 },
-        { AnimalEffectsEnum.Ugrumii, 29 },
-        { AnimalEffectsEnum.Fog, 30 },
-    };
-    
     public static bool UseEffect(Shelf shelf, Vector2Int position, AnimalEffectsEnum effect, Animal animal)
     {
         switch (effect)
