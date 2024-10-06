@@ -8,7 +8,20 @@ public class AnimalEffects
         { AnimalEffectsEnum.Tiran, 11 },
         { AnimalEffectsEnum.Obida, 21 },
         { AnimalEffectsEnum.Luchezar, 22 },
-        { AnimalEffectsEnum.Tron, 12 }
+        { AnimalEffectsEnum.Tron, 12 },
+        { AnimalEffectsEnum.Korni, 23 },
+        { AnimalEffectsEnum.Shumnii, 24 },
+        { AnimalEffectsEnum.Kosoi, 25 },
+        { AnimalEffectsEnum.BratVse, 0 },
+        { AnimalEffectsEnum.Karamba, 26 },
+        { AnimalEffectsEnum.Vzglyad, 27 },
+        { AnimalEffectsEnum.Zapah, 28 },
+        { AnimalEffectsEnum.Neizmeni, 32 },
+        { AnimalEffectsEnum.Traur, 12 },
+        { AnimalEffectsEnum.Sister, 31 },
+        { AnimalEffectsEnum.Water, 13 },
+        { AnimalEffectsEnum.Ugrumii, 29 },
+        { AnimalEffectsEnum.Fog, 30 },
     };
     
     public static bool UseEffect(Shelf shelf, Vector2Int position, AnimalEffectsEnum effect, Animal animal)
@@ -23,6 +36,26 @@ public class AnimalEffects
                 return Luchezar(shelf, position);
             case AnimalEffectsEnum.Tron:
                 return Tron(shelf, position);
+            case AnimalEffectsEnum.Korni:
+                return Korni(shelf, position);
+            case AnimalEffectsEnum.Shumnii:
+                return Shumnii(shelf, position);
+            case AnimalEffectsEnum.Kosoi:
+                return Kosoi(shelf, position);
+            case AnimalEffectsEnum.Karamba:
+                return Karamba(shelf, position);
+            case AnimalEffectsEnum.Vzglyad:
+                return Vzglyad(shelf, position);
+            case AnimalEffectsEnum.Zapah:
+                return Zapah(shelf, position);
+            case AnimalEffectsEnum.Traur:
+                return Traur(shelf, position);
+            case AnimalEffectsEnum.Water:
+                return Water(shelf, position);
+            case AnimalEffectsEnum.Ugrumii:
+                return Ugrumii(shelf, position);
+            case AnimalEffectsEnum.Fog:
+                return Fog(shelf, position);
         }
 
         return true;
@@ -69,8 +102,6 @@ public class AnimalEffects
             new Vector2Int(position.x, position.y - 1),
         };
 
-        var lot = shelf.ShelfLotsMatrix[position.x, position.y];
-
         for (int i = 0; i < neighbors.Length; i++)
         {
             var neighborPosition = neighbors[i];
@@ -103,6 +134,157 @@ public class AnimalEffects
         shelf.ShelfLotsMatrix[position.x, position.y].UpdateCharm(lot.Charm + 10f);
         return true;
     }
+    
+    private static bool Korni(Shelf shelf, Vector2Int position)
+    {
+        float additionalCharm = 0f;
+        for (int y = 0; y < shelf.Height; y++)
+        {
+            var slot = shelf.ShelfLotsMatrix[position.x, y];
+            additionalCharm += slot.Charm;
+            slot.UpdateCharm(0);
+        }
+
+        var currentSlot = shelf.ShelfLotsMatrix[position.x, position.y];
+        currentSlot.UpdateCharm(currentSlot.Charm + additionalCharm);
+        return true;
+    }
+    
+    private static bool Shumnii(Shelf shelf, Vector2Int position)
+    {
+        var downSlot = new Vector2Int(position.x + 1, position.y);
+        var upSlot = new Vector2Int(position.x - 1, position.y);
+
+        if (shelf.PositionToAnimalMap.TryGetValue(downSlot, out AnimalDrag animalDrag))
+        {
+            var slot = shelf.ShelfLotsMatrix[downSlot.x, downSlot.y];
+            slot.UpdateCharm(slot.Charm - 5f);
+        }
+        
+        if (shelf.PositionToAnimalMap.TryGetValue(upSlot, out AnimalDrag animalDrag1))
+        {
+            var slot = shelf.ShelfLotsMatrix[upSlot.x, upSlot.y];
+            slot.UpdateCharm(slot.Charm - 5f);
+        }
+        
+        return true;
+    }
+    
+    private static bool Kosoi(Shelf shelf, Vector2Int position)
+    {
+        if (shelf.PositionToAnimalMap.TryGetValue(new Vector2Int(position.x, position.y + 1), out AnimalDrag animalDrag))
+        {
+            var slot = shelf.ShelfLotsMatrix[position.x, position.y + 1];
+            slot.UpdateCharm(slot.Charm + 5f);
+        }
+        
+        if (shelf.PositionToAnimalMap.TryGetValue(new Vector2Int(position.x, position.y - 1), out AnimalDrag animalDrag1))
+        {
+            var slot = shelf.ShelfLotsMatrix[position.x, position.y - 1];
+            slot.UpdateCharm(slot.Charm + 5f);
+        }
+        return true;
+    }
+    
+    private static bool Karamba(Shelf shelf, Vector2Int position)
+    {
+        Vector2Int[] neighbors = new Vector2Int[]
+        {
+            new Vector2Int(position.x + 1, position.y + 1),
+            new Vector2Int(position.x + 1, position.y - 1),
+            new Vector2Int(position.x - 1, position.y + 1),
+            new Vector2Int(position.x - 1, position.y - 1),
+        };
+        
+        for (int i = 0; i < neighbors.Length; i++)
+        {
+            var neighborPosition = neighbors[i];
+
+            if (shelf.PositionToAnimalMap.TryGetValue(neighbors[i], out AnimalDrag animalDrag))
+            {
+                var slot = shelf.ShelfLotsMatrix[neighborPosition.x, neighborPosition.y];
+                slot.UpdateCharm(slot.Charm - 3f);
+            }
+        }
+        return true;
+    }
+
+    private static bool Vzglyad(Shelf shelf, Vector2Int position)
+    {
+        var downSlot = new Vector2Int(position.x + 1, position.y);
+        if (shelf.PositionToAnimalMap.TryGetValue(downSlot, out AnimalDrag animalDrag))
+        {
+            var slot = shelf.ShelfLotsMatrix[downSlot.x, downSlot.y];
+            slot.UpdateCharm(slot.Charm + 1f);
+        }
+
+        return true;
+    }
+    
+    private static bool Zapah(Shelf shelf, Vector2Int position)
+    {
+        var upSlot = new Vector2Int(position.x - 1, position.y);
+        if (shelf.PositionToAnimalMap.TryGetValue(upSlot, out AnimalDrag animalDrag))
+        {
+            var slot = shelf.ShelfLotsMatrix[upSlot.x, upSlot.y];
+            slot.UpdateCharm(slot.Charm - 2f);
+        }
+
+        return true;
+    }
+    
+    private static bool Traur(Shelf shelf, Vector2Int position)
+    {
+        float minCharm = float.MaxValue;
+        
+        var lot = shelf.ShelfLotsMatrix[position.x, position.y];
+
+        for (int x = 0; x < shelf.ShelfLotsMatrix.GetLength(0); x++)
+        {
+            for (int y = 0; y < shelf.ShelfLotsMatrix.GetLength(1); y++)
+            {
+                var shelfposition = new Vector2Int(x, y);
+        
+                if (shelf.PositionToAnimalMap.TryGetValue(shelfposition, out AnimalDrag animalDrag) && animalDrag.Animal.Type != AnimalType.Ghost)
+                {
+                    minCharm = Mathf.Min(minCharm, shelf.ShelfLotsMatrix[shelfposition.x, shelfposition.y].Charm);
+                }
+            }
+        }
+
+        if (minCharm > lot.Charm)
+        {
+            lot.UpdateCharm(lot.Charm + 10f);
+        }
+        
+        return true;
+    }
+    
+    private static bool Water(Shelf shelf, Vector2Int position)
+    {
+        var lot = shelf.ShelfLotsMatrix[position.x, position.y];
+        lot.UpdateCharm(lot.Charm + position.x + 1);
+        
+        return true;
+    }
+    
+    private static bool Ugrumii(Shelf shelf, Vector2Int position)
+    {
+        for (int y = 0; y < shelf.Height; y++)
+        {
+            var slot = shelf.ShelfLotsMatrix[position.x, y];
+            slot.UpdateCharm(slot.Charm + 2f);
+        }
+        
+        return true;
+    }
+    
+    private static bool Fog(Shelf shelf, Vector2Int position)
+    {
+        // todo описать
+        
+        return true;
+    }
 }
 
 public enum AnimalEffectsEnum
@@ -113,5 +295,15 @@ public enum AnimalEffectsEnum
     Tron,
     Korni,
     Shumnii,
+    Kosoi,
+    BratVse,
     Karamba,
+    Vzglyad,
+    Zapah,
+    Neizmeni,
+    Traur,
+    Sister,
+    Water,
+    Ugrumii,
+    Fog
 }

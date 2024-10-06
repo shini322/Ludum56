@@ -39,7 +39,12 @@ public class ShelfLot : MonoBehaviour, IDropHandler
 
     public void UpdateCharm(float charm)
     {
-        this.charm = charm;
+        if (!animalDrag.Animal.CanChangeCharm)
+        {
+            return;
+        }
+
+        this.charm = Mathf.Clamp(charm, 0, float.MaxValue);
         UpdateView();
     }
 

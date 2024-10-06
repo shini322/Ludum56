@@ -82,12 +82,22 @@ public class Shelf : MonoBehaviour
 
     public void AnimalsUpdate()
     {
-        foreach (var (animalDrag, position) in animalToPositionMap)
+        for (int x = 0; x < ShelfLotsMatrix.GetLength(0); x++)
         {
-            ShelfLotsMatrix[position.x, position.y].SetAnimal(animalDrag);
+            for (int y = 0; y < ShelfLotsMatrix.GetLength(1); y++)
+            {
+                var position = new Vector2Int(x, y);
+        
+                if (PositionToAnimalMap.TryGetValue(position, out AnimalDrag animalDrag))
+                {
+                    ShelfLotsMatrix[position.x, position.y].SetAnimal(animalDrag);
+                }
+                else
+                {
+                    ShelfLotsMatrix[position.x, position.y].SetAnimal(null);
+                }
+            }
         }
-
-        bool wasObida = false;
         
         foreach (AnimalEffectsEnum effect in sortedEffects)
         {
@@ -95,18 +105,5 @@ public class Shelf : MonoBehaviour
 
             AnimalEffects.UseEffect(this, animalToPositionMap[animal], effect, animal.Animal);
         }
-
-        // for (int x = 0; x < ShelfLotsMatrix.GetLength(0); x++)
-        // {
-        //     for (int y = 0; y < ShelfLotsMatrix.GetLength(1); y++)
-        //     {
-        //         var position = new Vector2Int(x, y);
-        //
-        //         if (PositionToAnimalMap.TryGetValue(position, out AnimalDrag animalDrag))
-        //         {
-        //             animalDrag.Animal.ShelfEnter(this, position);
-        //         }
-        //     }
-        // }
     }
 }

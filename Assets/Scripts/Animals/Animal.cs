@@ -1,7 +1,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Animal : ScriptableObject
+[CreateAssetMenu(fileName = "_Animal", menuName = "Animals")]
+public class Animal : ScriptableObject
 {
     [SerializeField] public Sprite Sprite;
     [SerializeField] public string Name;
@@ -10,8 +11,7 @@ public abstract class Animal : ScriptableObject
     [SerializeField] public float Charm;
     [SerializeField] public AnimalType Type;
     [SerializeField] public List<AnimalEffectsEnum> Effects;
-
-    public abstract bool ShelfEnter(Shelf shelf, Vector2Int position);
+    [SerializeField] public bool CanChangeCharm = true;
 }
 
 public enum AnimalType
