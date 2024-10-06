@@ -1,0 +1,481 @@
+fileFormatVersion: 2
+guid: bd92e50ea451db04cb477c0b70a19175
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -445845876145506919
+    second: all_guys (2)_0
+  - first:
+      213: 6669088374789659117
+    second: all_guys (2)_1
+  - first:
+      213: -7815328784088420924
+    second: all_guys (2)_2
+  - first:
+      213: 5152331926663489385
+    second: all_guys (2)_3
+  - first:
+      213: 8694702019384940580
+    second: all_guys (2)_4
+  - first:
+      213: 6639901057082964531
+    second: all_guys (2)_5
+  - first:
+      213: 8817799634135270499
+    second: all_guys (2)_6
+  - first:
+      213: 1018662964384820390
+    second: all_guys (2)_7
+  - first:
+      213: -2276283902099558178
+    second: all_guys (2)_8
+  - first:
+      213: 486161239182677982
+    second: all_guys (2)_9
+  - first:
+      213: 5656554531627513417
+    second: all_guys (2)_10
+  - first:
+      213: -6402151486511103465
+    second: all_guys (2)_11
+  - first:
+      213: -7962191157564836166
+    second: all_guys (2)_12
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Win64
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: all_guys (2)_0
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 19
+        width: 101
+        height: 119
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99536cfa98900d9f0800000000000000
+      internalID: -445845876145506919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: all_guys (2)_1
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 15
+        width: 123
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de95603ea8c5d8c50800000000000000
+      internalID: 6669088374789659117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: all_guys (2)_2
+      rect:
+        serializedVersion: 2
+        x: 277
+        y: 12
+        width: 141
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4cd2685d0ef5a8390800000000000000
+      internalID: -7815328784088420924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: all_guys (2)_3
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 16
+        width: 78
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9676eadc692c08740800000000000000
+      internalID: 5152331926663489385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: all_guys (2)_4
+      rect:
+        serializedVersion: 2
+        x: 583
+        y: 10
+        width: 107
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4289f4d8b69c9a870800000000000000
+      internalID: 8694702019384940580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: all_guys (2)_5
+      rect:
+        serializedVersion: 2
+        x: 737
+        y: 18
+        width: 89
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33abb2be4daa52c50800000000000000
+      internalID: 6639901057082964531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: all_guys (2)_6
+      rect:
+        serializedVersion: 2
+        x: 855
+        y: 13
+        width: 133
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 364c33d6c0e1f5a70800000000000000
+      internalID: 8817799634135270499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: all_guys (2)_7
+      rect:
+        serializedVersion: 2
+        x: 1013
+        y: 13
+        width: 100
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ace00aa194032e00800000000000000
+      internalID: 1018662964384820390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: all_guys (2)_8
+      rect:
+        serializedVersion: 2
+        x: 1137
+        y: 19
+        width: 140
+        height: 103
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed07a6fe9d30960e0800000000000000
+      internalID: -2276283902099558178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: all_guys (2)_9
+      rect:
+        serializedVersion: 2
+        x: 1302
+        y: 11
+        width: 94
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed71c0d32113fb600800000000000000
+      internalID: 486161239182677982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: all_guys (2)_10
+      rect:
+        serializedVersion: 2
+        x: 1431
+        y: 15
+        width: 122
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 946b846706e108e40800000000000000
+      internalID: 5656554531627513417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: all_guys (2)_11
+      rect:
+        serializedVersion: 2
+        x: 1574
+        y: 12
+        width: 119
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7124440a42df627a0800000000000000
+      internalID: -6402151486511103465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: all_guys (2)_12
+      rect:
+        serializedVersion: 2
+        x: 1684
+        y: 24
+        width: 8
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab67793e35d908190800000000000000
+      internalID: -7962191157564836166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      all_guys (2)_0: -445845876145506919
+      all_guys (2)_1: 6669088374789659117
+      all_guys (2)_10: 5656554531627513417
+      all_guys (2)_11: -6402151486511103465
+      all_guys (2)_12: -7962191157564836166
+      all_guys (2)_2: -7815328784088420924
+      all_guys (2)_3: 5152331926663489385
+      all_guys (2)_4: 8694702019384940580
+      all_guys (2)_5: 6639901057082964531
+      all_guys (2)_6: 8817799634135270499
+      all_guys (2)_7: 1018662964384820390
+      all_guys (2)_8: -2276283902099558178
+      all_guys (2)_9: 486161239182677982
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

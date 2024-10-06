@@ -86,7 +86,7 @@ public class AnimalEffects
         var animalDrag = shelf.PositionToAnimalMap[position];
         var charmForChange = 3f;
         var currentSlot = shelf.ShelfLotsMatrix[position.x, position.y];
-        if (currentSlot.Charm > animalDrag.Animal.Charm)
+        if (currentSlot.Charm < animalDrag.Animal.Charm)
         {
             charmForChange *= -1f;
         }
