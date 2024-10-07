@@ -164,6 +164,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   imageContainer: {fileID: 6394349056122659563}
   textContainer: {fileID: 5078669944292726298}
+  animalSlot: {fileID: 0}
 --- !u!222 &3071141105169873252
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -1,5 +1,6 @@
-using System;
-using TMPro;
+    using System;
+    using System.Collections;
+    using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -23,6 +24,11 @@ public class ShelfLot : MonoBehaviour, IDropHandler
         this.shelf = shelf;
         this.shelfPosition = shelfPosition;
         SetAnimal(null);
+    }
+
+    private void Update()
+    {
+        Shake();
     }
 
     public void OnDrop(PointerEventData eventData)
@@ -84,5 +90,13 @@ public class ShelfLot : MonoBehaviour, IDropHandler
         textContainer.text = "";
         charm = 0;
         animalDrag = null;
+    }
+
+    private void Shake()
+    {
+        if (animalSlot != null)
+        {
+            animalSlot.Shake();
+        }
     }
 }

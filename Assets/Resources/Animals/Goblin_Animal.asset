@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Goblin_Animal
   m_EditorClassIdentifier: 
   Sprite: {fileID: 21300000, guid: c613654a208a35947b17d8d89c096b39, type: 3}
+  TooltipSprite: {fileID: 21300000, guid: 5240120a96467654c9bd3b0806290108, type: 3}
   Name: "<b>\u0420\u0430\u0437\u044A\u044F\u0440\u0435\u043D\u043D\u044B\u0439 \u0433\u043E\u0431\u043B\u0438\u043D</b>"
   Description: "\u041C\u0430\u043B\u0435\u043D\u044C\u043A\u043E\u0435 \u044F\u0440\u043E\u0441\u0442\u043D\u043E\u0435
     \u0441\u0443\u0449\u0435\u0441\u0442\u0432\u043E, \u043D\u0435\u0432\u043D\u044F\u0442\u043D\u043E

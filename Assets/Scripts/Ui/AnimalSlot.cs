@@ -9,9 +9,11 @@ public class AnimalSlot : MonoBehaviour
     [SerializeField] private Image chooseImage;
 
     private bool isEmpty = true;
+    private Vector2 startPosition;
 
     private void Awake()
     {
+        startPosition = Container.rect.position;
         chooseImage.gameObject.SetActive(false);
         UpdateSprite();
     }
@@ -31,6 +33,12 @@ public class AnimalSlot : MonoBehaviour
     {
         isEmpty = value;
         UpdateSprite();
+    }
+
+    public void Shake()
+    {
+        // Container.anchoredPosition = new Vector2(startPosition.x + Mathf.Sin(Time.time * 1f) * 1f,
+        //     startPosition.y + (Mathf.Sin(Time.time * 1f) * 1f));
     }
 
     private void UpdateSprite()

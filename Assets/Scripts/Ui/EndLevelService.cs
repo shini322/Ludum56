@@ -1,5 +1,5 @@
-using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class EndLevelService : MonoBehaviour
@@ -10,7 +10,7 @@ public class EndLevelService : MonoBehaviour
 
     private void Awake()
     {
-        // button.interactable = false;
+        button.interactable = false;
     }
 
     private void OnDisable()
@@ -29,6 +29,7 @@ public class EndLevelService : MonoBehaviour
     {
         LevelService.Instance.NextBuyer();
         dialogService.ShowDialog(LevelService.Instance.CurrentBuyer.StartDialog);
+        SceneManager.LoadScene("GameScene");
     }
 
     private void UpdateButton()

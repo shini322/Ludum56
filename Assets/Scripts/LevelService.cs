@@ -7,6 +7,12 @@ public class LevelService : Singleton<LevelService>
 
     private int buyerIndex = 0;
 
+    public override void Awake()
+    {
+        base.Awake();
+        DontDestroyOnLoad(gameObject);
+    }
+
     private void Start()
     {
         NextBuyer();

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Ghost_Animal
   m_EditorClassIdentifier: 
   Sprite: {fileID: 21300000, guid: d34e432e44b883f438cbbcbb9b2048d7, type: 3}
+  TooltipSprite: {fileID: 21300000, guid: 8711077d0a83d064b90ce0814e1e8102, type: 3}
   Name: "<b>\u041F\u0435\u0447\u0430\u043B\u044C\u043D\u043E\u0435 \u043F\u0440\u0438\u0432\u0435\u0434\u0435\u043D\u0438\u0435</b>"
   Description: "\u0412\u0441\u0435 \u0435\u0449\u0435 \u0440\u044B\u0449\u0435\u0442
     \u0432 \u043F\u043E\u0438\u0441\u043A\u0430\u0445 \u0441\u0432\u0435\u0442\u043B\u043E\u0432\u043E\u043B\u043E\u0441\u043E\u0439

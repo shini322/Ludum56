@@ -22,4 +22,6 @@ public enum CharacterType
     Elf,
     Wolf,
     Player,
+    Vampire,
+    HollowKnight
 }

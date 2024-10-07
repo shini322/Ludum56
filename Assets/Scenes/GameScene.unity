@@ -490,6 +490,8 @@ MonoBehaviour:
   Buyers:
   - {fileID: 11400000, guid: b7df63146658a3e4c8d9df00b5fb17d5, type: 2}
   - {fileID: 11400000, guid: 25238ef3828d309479e16ad8ba734c86, type: 2}
+  - {fileID: 11400000, guid: ac74fc5d9bd0e3447b197a0654c1ce77, type: 2}
+  - {fileID: 11400000, guid: 4e954d832cb838d4b8b6b5e88a6da28c, type: 2}
   Priorities:
   - Name: "\u0422\u0438\u0440\u0430\u043D"
     Effect: 0
@@ -1223,7 +1225,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -1949,7 +1951,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.14620104, y: 0.67152065}
   m_AnchorMax: {x: 0.93950444, y: 0.75100005}
-  m_AnchoredPosition: {x: 1.7200012, y: -1.4799957}
+  m_AnchoredPosition: {x: 1.7199707, y: -1.4799805}
   m_SizeDelta: {x: 9.83, y: -0.96000004}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1259482278

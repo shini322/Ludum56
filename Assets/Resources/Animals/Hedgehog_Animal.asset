@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Hedgehog_Animal
   m_EditorClassIdentifier: 
   Sprite: {fileID: 21300000, guid: 421988cd305d95940aa5aa3c0b993303, type: 3}
+  TooltipSprite: {fileID: 21300000, guid: dad5e79618723f0408fc3d5fb3d22171, type: 3}
   Name: "<b>\u0415\u0436\u043E\u0432\u0430\u044F \u0442\u0443\u043C\u0430\u043D\u043D\u043E\u0441\u0442\u044C</b>"
   Description: "\u041A\u043E\u0441\u043C\u0438\u0447\u0435\u0441\u043A\u0438\u0439
     \u0435\u0436, \u0447\u0442\u043E \u043C\u043E\u0436\u0435\u0442 \u0431\u044B\u0442\u044C

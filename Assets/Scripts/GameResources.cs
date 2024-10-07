@@ -34,7 +34,9 @@ public class GameResources : Singleton<GameResources>
     {
         { CharacterType.Elf, "Эльфийка" },
         { CharacterType.Player, "Торговец" },
-        { CharacterType.Wolf, "Вервульф" }
+        { CharacterType.Wolf, "Вервульф" },
+        { CharacterType.Vampire, "Вампир" },
+        { CharacterType.HollowKnight, "Полый рыцарь" }
     };
     
     private void Init()
