@@ -350,15 +350,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: b8b5e87c5067dd044bbb1e0b710e0717, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -407,10 +407,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 785179934}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 268}
-  m_SizeDelta: {x: 1307.32, y: 326.83}
+  m_AnchorMin: {x: 0.16041668, y: 0.59900004}
+  m_AnchorMax: {x: 0.84279186, y: 0.90000004}
+  m_AnchoredPosition: {x: -3, y: -1.5}
+  m_SizeDelta: {x: -2.6800537, y: 1.8299866}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1106649865
 MonoBehaviour:
@@ -432,7 +432,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Mr tiny beasts
+  m_text: Mr tiny beast
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e5c8c1c60adf578499633638c11a7575, type: 2}
   m_sharedMaterial: {fileID: -8978645418198646951, guid: e5c8c1c60adf578499633638c11a7575, type: 2}
@@ -459,7 +459,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 190.5
+  m_fontSize: 200
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1

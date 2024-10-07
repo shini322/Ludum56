@@ -32,11 +32,11 @@ public class GameResources : Singleton<GameResources>
 
     public readonly Dictionary<CharacterType, string> DialogCharacterName = new()
     {
-        { CharacterType.Elf, "Эльфийка" },
-        { CharacterType.Player, "Торговец" },
-        { CharacterType.Wolf, "Вервульф" },
-        { CharacterType.Vampire, "Вампир" },
-        { CharacterType.HollowKnight, "Полый рыцарь" }
+        { CharacterType.Elf, "The Elf" },
+        { CharacterType.Player, "Trader" },
+        { CharacterType.Wolf, "Werewolf" },
+        { CharacterType.Vampire, "The vampire" },
+        { CharacterType.HollowKnight, "The Hollow Knight" }
     };
     
     private void Init()

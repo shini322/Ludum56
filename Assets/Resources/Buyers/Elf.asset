@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 643e25e08d3d431495ffa2289a8f1214, type: 3}
   m_Name: Elf
   m_EditorClassIdentifier: 
-  Name: "\u042D\u043B\u044C\u0444\u0438\u0439\u043A\u0430"
+  Name: The Elf
   AnimalWantToBuy: 1
   StartDialog: {fileID: 11400000, guid: 318a17bf4a3ad55419b09321894ff9f9, type: 2}

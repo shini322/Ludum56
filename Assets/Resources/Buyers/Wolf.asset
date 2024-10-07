@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 643e25e08d3d431495ffa2289a8f1214, type: 3}
   m_Name: Wolf
   m_EditorClassIdentifier: 
-  Name: "\u0412\u0435\u0440\u0432\u0443\u043B\u044C\u0444"
+  Name: Werewolf
   AnimalWantToBuy: 8
   StartDialog: {fileID: 11400000, guid: 323c2627fe6100e4f935d47c66f75130, type: 2}

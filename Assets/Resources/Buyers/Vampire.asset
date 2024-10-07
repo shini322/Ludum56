@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 643e25e08d3d431495ffa2289a8f1214, type: 3}
   m_Name: Vampire
   m_EditorClassIdentifier: 
-  Name: "\u0412\u0430\u043C\u043F\u0438\u0440"
+  Name: The vampire
   AnimalWantToBuy: 7
   StartDialog: {fileID: 11400000, guid: 5c2ccd605c42bbe41a5ab142fae919fe, type: 2}

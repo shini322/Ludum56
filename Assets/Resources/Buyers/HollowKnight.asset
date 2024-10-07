@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 643e25e08d3d431495ffa2289a8f1214, type: 3}
   m_Name: HollowKnight
   m_EditorClassIdentifier: 
-  Name: "\u041F\u043E\u043B\u044B\u0439 \u0440\u044B\u0446\u0430\u0440\u044C"
+  Name: The Hollow Knight
   AnimalWantToBuy: 2
   StartDialog: {fileID: 11400000, guid: 5c81c5000f8576b40a1a5f852d7c9c1d, type: 2}
